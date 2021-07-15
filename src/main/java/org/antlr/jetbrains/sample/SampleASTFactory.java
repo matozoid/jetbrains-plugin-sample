@@ -36,7 +36,7 @@ public class SampleASTFactory extends CoreASTFactory {
 	 */
 	@NotNull
 	@Override
-	public LeafElement createLeaf(@NotNull IElementType type, CharSequence text) {
+	public LeafElement createLeaf(@NotNull IElementType type, @NotNull CharSequence text) {
 		if ( type instanceof TokenIElementType &&
 			 ((TokenIElementType) type).getANTLRTokenType()==SampleLanguageLexer.ID)
 		{

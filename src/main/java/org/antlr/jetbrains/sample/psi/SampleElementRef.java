@@ -11,7 +11,7 @@ import org.jetbrains.annotations.Nullable;
 
 public abstract class SampleElementRef extends PsiReferenceBase<IdentifierPSINode> {
 	public SampleElementRef(@NotNull IdentifierPSINode element) {
-		/** WARNING: You must send up the text range or you get this error:
+		/* WARNING: You must send up the text range or you get this error:
 		 * "Cannot find manipulator for PsiElement(ID) in org.antlr.jetbrains.sample.SampleElementRef"...
 		 *  when you click on an identifier.  During rename you get this
 		 *  error too if you don't impl handleElementRename().
@@ -37,7 +37,7 @@ public abstract class SampleElementRef extends PsiReferenceBase<IdentifierPSINod
 	 *  getElement() refers to the identifier node that references the definition.
 	 */
 	@Override
-	public PsiElement handleElementRename(String newElementName) throws IncorrectOperationException {
+	public PsiElement handleElementRename(@NotNull String newElementName) throws IncorrectOperationException {
 //		System.out.println(getClass().getSimpleName()+".handleElementRename("+myElement.getName()+"->"+newElementName+
 //			                   ") on "+myElement+" at "+Integer.toHexString(myElement.hashCode()));
 
@@ -61,7 +61,7 @@ public abstract class SampleElementRef extends PsiReferenceBase<IdentifierPSINod
 	}
 
 	@Override
-	public boolean isReferenceTo(PsiElement def) {
+	public boolean isReferenceTo(@NotNull PsiElement def) {
 		String refName = myElement.getName();
 //		System.out.println(getClass().getSimpleName()+".isReferenceTo("+refName+"->"+def.getText()+")");
 		// sometimes def comes in pointing to ID node itself. depends on what you click on

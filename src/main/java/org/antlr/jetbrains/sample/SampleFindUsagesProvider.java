@@ -22,7 +22,7 @@ import static org.antlr.jetbrains.sample.parser.SampleLanguageParser.RULE_vardef
 public class SampleFindUsagesProvider implements FindUsagesProvider {
 	/** Is "find usages" meaningful for a kind of definition subtree? */
 	@Override
-	public boolean canFindUsagesFor(PsiElement psiElement) {
+	public boolean canFindUsagesFor(@NotNull PsiElement psiElement) {
 		return psiElement instanceof IdentifierPSINode || // the case where we highlight the ID in def subtree itself
 			   psiElement instanceof FunctionSubtree ||   // remaining cases are for resolve() results
 			   psiElement instanceof VardefSubtree;
@@ -36,7 +36,7 @@ public class SampleFindUsagesProvider implements FindUsagesProvider {
 
 	@Nullable
 	@Override
-	public String getHelpId(PsiElement psiElement) {
+	public String getHelpId(@NotNull PsiElement psiElement) {
 		return null;
 	}
 
@@ -53,13 +53,12 @@ public class SampleFindUsagesProvider implements FindUsagesProvider {
 			case RULE_call_expr :
 				return "function";
 			case RULE_vardef :
-				return "variable";
-			case RULE_formal_arg :
-				return "parameter";
 			case RULE_statement :
 			case RULE_expr :
 			case RULE_primary :
 				return "variable";
+			case RULE_formal_arg :
+				return "parameter";
 		}
 		return "";
 	}
