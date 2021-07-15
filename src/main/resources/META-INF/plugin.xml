@@ -18,14 +18,8 @@
 	<!-- uncomment to enable plugin in all products -->
 	<depends>com.intellij.modules.lang</depends>
 
-	<project-components>
-		<component>
-			<implementation-class>org.antlr.jetbrains.sample.SamplePluginController</implementation-class>
-		</component>
-	</project-components>
-
 	<extensions defaultExtensionNs="com.intellij">
-		<fileType name="Sample" language="Sample" implementationClass="org.antlr.jetbrains.sample.SampleFileType" extensions="sample" />
+		<fileType name="Sample language for Intellij ANTLR support" language="Sample" implementationClass="org.antlr.jetbrains.sample.SampleFileType" extensions="sample" />
 		<lang.syntaxHighlighter language="Sample"
 									   implementationClass="org.antlr.jetbrains.sample.SampleSyntaxHighlighter"/>
 
