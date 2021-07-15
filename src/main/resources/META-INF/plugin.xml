@@ -1,4 +1,4 @@
-<idea-plugin version="2">
+<idea-plugin>
 	<id>org.antlr.jetbrains.sample</id>
 	<name>Sample Jetbrains Plugin</name>
 	<version>0.1</version>
@@ -11,11 +11,10 @@
 <a href="https://github.com/parrt/sample-jetbrains-plugin">Github source</a>
   ]]></description>
 
-	<!-- please see http://confluence.jetbrains.net/display/IDEADEV/Build+Number+Ranges for description -->
-	<idea-version since-build="133"/> <!-- requires 13.x, 14.x, 15.x -->
+	<!-- please see https://plugins.jetbrains.com/docs/intellij/build-number-ranges.html for description -->
+	<idea-version since-build="202"/> <!-- the last version to use Java 8 -->
 
-	<!-- please see http://confluence.jetbrains.net/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
-		 on how to target different products -->
+	<!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html on how to target different products -->
 	<!-- uncomment to enable plugin in all products -->
 	<depends>com.intellij.modules.lang</depends>
 
@@ -26,9 +25,9 @@
 	</project-components>
 
 	<extensions defaultExtensionNs="com.intellij">
-		<fileTypeFactory implementation="org.antlr.jetbrains.sample.SampleFileTypeFactory"/>
-		<lang.syntaxHighlighterFactory language="Sample"
-									   implementationClass="org.antlr.jetbrains.sample.SampleSyntaxHighlighterFactory"/>
+		<fileType name="Sample" language="Sample" implementationClass="org.antlr.jetbrains.sample.SampleFileType" extensions="sample" />
+		<lang.syntaxHighlighter language="Sample"
+									   implementationClass="org.antlr.jetbrains.sample.SampleSyntaxHighlighter"/>
 
 		<lang.parserDefinition language="Sample" implementationClass="org.antlr.jetbrains.sample.SampleParserDefinition"/>
 		<lang.ast.factory language="Sample" implementationClass="org.antlr.jetbrains.sample.SampleASTFactory"/>

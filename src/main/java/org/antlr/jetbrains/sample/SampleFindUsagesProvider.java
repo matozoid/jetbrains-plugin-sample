@@ -72,7 +72,6 @@ public class SampleFindUsagesProvider implements FindUsagesProvider {
 	@NotNull
 	@Override
 	public String getNodeText(PsiElement element, boolean useFullName) {
-		String text = element.getText();
-		return text;
+		return element.getText();
 	}
 }

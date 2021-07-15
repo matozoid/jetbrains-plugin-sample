@@ -1,11 +1,11 @@
 package org.antlr.jetbrains.sample;
 
-import com.intellij.core.CoreASTFactory;
+import com.intellij.lang.DefaultASTFactoryImpl;
 import com.intellij.lang.ParserDefinition;
 import com.intellij.psi.impl.source.tree.CompositeElement;
 import com.intellij.psi.impl.source.tree.LeafElement;
 import com.intellij.psi.impl.source.tree.LeafPsiElement;
-import com.intellij.psi.impl.source.tree.PsiCoreCommentImpl;
+import com.intellij.psi.impl.source.tree.PsiCommentImpl;
 import com.intellij.psi.tree.IElementType;
 import org.antlr.intellij.adaptor.lexer.TokenIElementType;
 import org.antlr.jetbrains.sample.parser.SampleLanguageLexer;
@@ -15,10 +15,10 @@ import org.jetbrains.annotations.NotNull;
 /** How to create parse tree nodes (Jetbrains calls them AST nodes). Later
  *  non-leaf nodes are converted to PSI nodes by the {@link ParserDefinition}.
  *  Leaf nodes are already considered PSI nodes.  This is mostly just
- *  {@link CoreASTFactory} but with comments on the methods that you might want
+ *  {@link DefaultASTFactoryImpl} but with comments on the methods that you might want
  *  to override.
  */
-public class SampleASTFactory extends CoreASTFactory {
+public class SampleASTFactory extends DefaultASTFactoryImpl {
 	/** Create an internal parse tree node. FileElement for root or a parse tree CompositeElement (not
 	 *  PSI) for the token.
 	 *  The FileElement is a parse tree node, which is converted to a PsiFile
@@ -26,13 +26,13 @@ public class SampleASTFactory extends CoreASTFactory {
 	 */
 	@NotNull
     @Override
-    public CompositeElement createComposite(IElementType type) {
+    public CompositeElement createComposite(@NotNull IElementType type) {
 	    return super.createComposite(type);
     }
 
 	/** Create a parse tree (AST) leaf node from a token. Doubles as a PSI leaf node.
 	 *  Does not see whitespace tokens.  Default impl makes {@link LeafPsiElement}
-	 *  or {@link PsiCoreCommentImpl} depending on {@link ParserDefinition#getCommentTokens()}.
+	 *  or {@link PsiCommentImpl} depending on {@link ParserDefinition#getCommentTokens()}.
 	 */
 	@NotNull
 	@Override
@@ -49,7 +49,6 @@ public class SampleASTFactory extends CoreASTFactory {
 			// TODO: try not to create one for IDs under def subtree roots like vardef, function
 			return new IdentifierPSINode(type, text);
 		}
-		LeafElement leaf = super.createLeaf(type, text);
-		return leaf;
+		return super.createLeaf(type, text);
     }
 }

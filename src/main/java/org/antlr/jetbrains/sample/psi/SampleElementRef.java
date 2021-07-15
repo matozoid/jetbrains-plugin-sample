@@ -23,9 +23,8 @@ public abstract class SampleElementRef extends PsiReferenceBase<IdentifierPSINod
 		super(element, new TextRange(0, element.getText().length()));
 	}
 
-	@NotNull
 	@Override
-	public Object[] getVariants() {
+	public Object @NotNull [] getVariants() {
 		return new Object[0];
 	}
 
