@@ -1,18 +1,13 @@
 <idea-plugin>
 	<id>org.antlr.jetbrains.sample</id>
-	<name>Sample Jetbrains Plugin</name>
+	<name>Sample Lang</name>
 	<version>0.1</version>
 	<vendor email="parrt@antlr.org" url="https://github.com/parrt/sample-jetbrains-plugin">ANTLR Project Sample Jetbrains Plugin</vendor>
 
-	<description><![CDATA[
-  <p>Sample plugin</p>
-
-<p>
-<a href="https://github.com/parrt/sample-jetbrains-plugin">Github source</a>
-  ]]></description>
+	<description><![CDATA[<p>Sample plugin</p><p><a href="https://github.com/parrt/sample-jetbrains-plugin">Github source</a>]]></description>
 
 	<!-- please see https://plugins.jetbrains.com/docs/intellij/build-number-ranges.html for description -->
-	<idea-version since-build="202"/> <!-- the last version to use Java 8 -->
+	<idea-version since-build="213"/> <!-- the last version to use Java 8 -->
 
 	<!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html on how to target different products -->
 	<!-- uncomment to enable plugin in all products -->
@@ -20,8 +15,7 @@
 
 	<extensions defaultExtensionNs="com.intellij">
 		<fileType name="Sample language for Intellij ANTLR support" language="Sample" implementationClass="org.antlr.jetbrains.sample.SampleFileType" extensions="sample" />
-		<lang.syntaxHighlighter language="Sample"
-									   implementationClass="org.antlr.jetbrains.sample.SampleSyntaxHighlighter"/>
+		<lang.syntaxHighlighter language="Sample" implementationClass="org.antlr.jetbrains.sample.SampleSyntaxHighlighter"/>
 
 		<lang.parserDefinition language="Sample" implementationClass="org.antlr.jetbrains.sample.SampleParserDefinition"/>
 		<lang.ast.factory language="Sample" implementationClass="org.antlr.jetbrains.sample.SampleASTFactory"/>
@@ -35,5 +29,11 @@
 
 		<lang.findUsagesProvider language="Sample"
 								 implementationClass="org.antlr.jetbrains.sample.SampleFindUsagesProvider"/>
+		<!--https://www.plugin-dev.com/intellij/custom-language/code-completion/ -->
+		<completion.contributor
+				implementationClass=""
+				factoryArgument=""
+				language="Sample"
+		/>
 	</extensions>
 </idea-plugin>
