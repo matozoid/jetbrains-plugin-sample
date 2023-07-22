@@ -15,8 +15,7 @@ public class SampleStructureViewModel
 		super(root, new SampleStructureViewRootElement(root));
 	}
 
-	@NotNull
-	public Sorter[] getSorters() {
+	public Sorter @NotNull [] getSorters() {
 		return new Sorter[] {Sorter.ALPHA_SORTER};
 	}
 

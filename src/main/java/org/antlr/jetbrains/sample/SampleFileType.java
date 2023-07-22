@@ -8,7 +8,7 @@ import javax.swing.*;
 
 public class SampleFileType extends LanguageFileType {
 	public static final String FILE_EXTENSION = "sample";
-		public static final SampleFileType INSTANCE = new SampleFileType();
+	public static final SampleFileType INSTANCE = new SampleFileType();
 
 	protected SampleFileType() {
 		super(SampleLanguage.INSTANCE);
@@ -17,13 +17,13 @@ public class SampleFileType extends LanguageFileType {
 	@NotNull
 	@Override
 	public String getName() {
-		return "StringTemplate v4 template group file";
+		return "Sample language for Intellij ANTLR support";
 	}
 
 	@NotNull
 	@Override
 	public String getDescription() {
-		return "StringTemplate v4 template group file";
+		return "Sample language for Intellij ANTLR support";
 	}
 
 	@NotNull

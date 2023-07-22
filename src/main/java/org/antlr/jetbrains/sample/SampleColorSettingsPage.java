@@ -16,8 +16,8 @@ public class SampleColorSettingsPage implements ColorSettingsPage {
 		new AttributesDescriptor("Identifier", SampleSyntaxHighlighter.ID),
 		new AttributesDescriptor("Keyword", SampleSyntaxHighlighter.KEYWORD),
 		new AttributesDescriptor("String", SampleSyntaxHighlighter.STRING),
-		new AttributesDescriptor("Line comment", SampleSyntaxHighlighter.LINE_COMMENT),
-		new AttributesDescriptor("Block comment", SampleSyntaxHighlighter.BLOCK_COMMENT),
+		new AttributesDescriptor("Line Comment", SampleSyntaxHighlighter.LINE_COMMENT),
+		new AttributesDescriptor("Block Comment", SampleSyntaxHighlighter.BLOCK_COMMENT),
 	};
 
 	@Nullable
@@ -54,15 +54,13 @@ public class SampleColorSettingsPage implements ColorSettingsPage {
 			"func g(c:string) { }\n";
 	}
 
-	@NotNull
 	@Override
-	public AttributesDescriptor[] getAttributeDescriptors() {
+	public AttributesDescriptor @NotNull [] getAttributeDescriptors() {
 		return DESCRIPTORS;
 	}
 
-	@NotNull
 	@Override
-	public ColorDescriptor[] getColorDescriptors() {
+	public ColorDescriptor @NotNull [] getColorDescriptors() {
 		return ColorDescriptor.EMPTY_ARRAY;
 	}
 

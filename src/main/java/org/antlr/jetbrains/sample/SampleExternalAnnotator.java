@@ -2,6 +2,7 @@ package org.antlr.jetbrains.sample;
 
 import com.intellij.lang.annotation.AnnotationHolder;
 import com.intellij.lang.annotation.ExternalAnnotator;
+import com.intellij.lang.annotation.HighlightSeverity;
 import com.intellij.openapi.util.TextRange;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
@@ -73,7 +74,7 @@ public class SampleExternalAnnotator extends ExternalAnnotator<PsiFile, List<Sam
 	{
 		for (Issue issue : issues) {
 			TextRange range = issue.offendingNode.getTextRange();
-			holder.createErrorAnnotation(range, issue.msg);
+			holder.newAnnotation(HighlightSeverity.ERROR, issue.msg).range(range).create();
 		}
 	}
 }

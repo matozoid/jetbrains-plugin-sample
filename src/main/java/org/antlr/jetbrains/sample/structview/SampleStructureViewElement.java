@@ -61,9 +61,8 @@ public class SampleStructureViewElement implements StructureViewTreeElement, Sor
 		return new SampleItemPresentation(element);
 	}
 
-	@NotNull
 	@Override
-	public TreeElement[] getChildren() {
+	public TreeElement @NotNull [] getChildren() {
 		if ( element instanceof SamplePSIFileRoot ) {
 			Collection<? extends PsiElement> funcs = XPath.findAll(SampleLanguage.INSTANCE, element, "/script/function/ID");
 			List<TreeElement> treeElements = new ArrayList<>(funcs.size());
